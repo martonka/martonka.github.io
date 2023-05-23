@@ -1,0 +1,984 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-05-23T13:43:54+00:00</updated><id>http://localhost:4000/feed.xml</id><entry><title type="html">Apache Kudu 1.16.0 Released</title><link href="http://localhost:4000/2022/06/17/apache-kudu-1-16-0-released.html" rel="alternate" type="text/html" title="Apache Kudu 1.16.0 Released" /><published>2022-06-17T00:00:00+00:00</published><updated>2022-06-17T00:00:00+00:00</updated><id>http://localhost:4000/2022/06/17/apache-kudu-1-16-0-released</id><content type="html" xml:base="http://localhost:4000/2022/06/17/apache-kudu-1-16-0-released.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.16.0!&lt;/p&gt;
+
+&lt;p&gt;The new release adds several new features and improvements, including the
+following:&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kudu has a new &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/startup&lt;/code&gt; page on the web UI where admins can easily track
+startup progress of a Kudu server.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It is now possible to change the replication of an existing table, and to
+require a minimum replication factor across a Kudu cluster.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The above is just a list of the highlights, for a more complete list of new
+features, improvements and fixes please refer to the &lt;a href=&quot;/releases/1.16.0/docs/release_notes.html&quot;&gt;release
+notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.16.0, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.16.0&quot;&gt;1.16.0 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.16.0/docs/installation.html#build_from_source&quot;&gt;1.16.0 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.16.0&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, experimental Docker images are published to
+&lt;a href=&quot;https://hub.docker.com/r/apache/kudu&quot;&gt;Docker Hub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Attila Bukor</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.16.0! The new release adds several new features and improvements, including the following:</summary></entry><entry><title type="html">Apache Kudu 1.15.0 Released</title><link href="http://localhost:4000/2021/06/22/apache-kudu-1-15-0-released.html" rel="alternate" type="text/html" title="Apache Kudu 1.15.0 Released" /><published>2021-06-22T00:00:00+00:00</published><updated>2021-06-22T00:00:00+00:00</updated><id>http://localhost:4000/2021/06/22/apache-kudu-1-15-0-released</id><content type="html" xml:base="http://localhost:4000/2021/06/22/apache-kudu-1-15-0-released.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.15.0!&lt;/p&gt;
+
+&lt;p&gt;The new release adds several new features and improvements, including the
+following:&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kudu now experimentally supports multi-row transactions. Currently only &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT&lt;/code&gt; and
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT_IGNORE&lt;/code&gt; operations are supported.
+See &lt;a href=&quot;https://github.com/apache/kudu/blob/master/docs/design-docs/transactions.adoc&quot;&gt;here&lt;/a&gt; for a
+design overview of this feature.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kudu now supports Raft configuration change for Kudu masters and CLI tools for orchestrating
+addition and removal of masters in a Kudu cluster. These tools substantially simplify the process
+of migrating to multiple masters, recovering a dead master and removing masters from a Kudu
+cluster. For detailed steps, see the latest administration documentation. This feature is evolving
+and the steps to add, remove and recover masters may change in the future.
+See &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2181&quot;&gt;KUDU-2181&lt;/a&gt; for details.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kudu now supports table comments directly on Kudu tables which are automatically synchronized
+when the Hive Metastore integration is enabled. These comments can be added at table creation time
+and changed via table alteration.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kudu now experimentally supports per-table size limits based on leader disk space usage or number
+of rows. When generating new authorization tokens, Masters will now consider the size limits and
+strip tokens of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UPDATE&lt;/code&gt; privileges if either limit is reached. To enable this
+feature, set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--enable_table_write_limit&lt;/code&gt; master flag; adjust the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--table_disk_size_limit&lt;/code&gt;
+and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--table_row_count_limit&lt;/code&gt; flags as desired or use the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu table set_limit&lt;/code&gt; tool to set
+limits per table.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;It is now possible to change the Kerberos Service Principal Name using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--principal&lt;/code&gt; flag. The
+default SPN is still &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu/_HOST&lt;/code&gt;. Clients connecting to a cluster using a non-default SPN must
+set the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;sasl_protocol_name&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saslProtocolName&lt;/code&gt; to match the SPN base
+(i.e. “kudu” if the SPN is “kudu/_HOST”) in the client builder or the Kudu CLI.
+See &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-1884&quot;&gt;KUDU-1884&lt;/a&gt; for details.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Kudu RPC now supports TLSv1.3.  Kudu servers and clients automatically negotiate TLSv1.3 for Kudu
+RPC if OpenSSL (or Java runtime correspondingly) on each side supports TLSv1.3.
+If necessary, use the newly introduced flag &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--rpc_tls_ciphersuites&lt;/code&gt; to customize TLSv1.3-specific
+cipher suites at the server side.
+See &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2871&quot;&gt;KUDU-2871&lt;/a&gt; for details.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The above is just a list of the highlights, for a more complete list of new
+features, improvements and fixes please refer to the &lt;a href=&quot;/releases/1.15.0/docs/release_notes.html&quot;&gt;release
+notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.15.0, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.15.0&quot;&gt;1.15.0 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.15.0/docs/installation.html#build_from_source&quot;&gt;1.15.0 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.15.0&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, experimental Docker images are published to
+&lt;a href=&quot;https://hub.docker.com/r/apache/kudu&quot;&gt;Docker Hub&lt;/a&gt;, including for AArch64-based
+architectures (ARM).&lt;/p&gt;</content><author><name>Bankim Bhavsar</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.15.0! The new release adds several new features and improvements, including the following:</summary></entry><entry><title type="html">Apache Kudu 1.14.0 Released</title><link href="http://localhost:4000/2021/01/28/apache-kudu-1-14-0-release.html" rel="alternate" type="text/html" title="Apache Kudu 1.14.0 Released" /><published>2021-01-28T00:00:00+00:00</published><updated>2021-01-28T00:00:00+00:00</updated><id>http://localhost:4000/2021/01/28/apache-kudu-1-14-0-release</id><content type="html" xml:base="http://localhost:4000/2021/01/28/apache-kudu-1-14-0-release.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.14.0!&lt;/p&gt;
+
+&lt;p&gt;The new release adds several new features and improvements, including the
+following:&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Full support for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT_IGNORE&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UPDATE_IGNORE&lt;/code&gt;, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DELETE_IGNORE&lt;/code&gt; operations
+was added. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT_IGNORE&lt;/code&gt; operation will insert a row if one matching the key
+does not exist and ignore the operation if one already exists. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UPDATE_IGNORE&lt;/code&gt;
+operation will update the row if one matching the key exists and ignore the operation
+if one does not exist. The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DELETE_IGNORE&lt;/code&gt; operation will delete the row if one matching
+the key exists and ignore the operation if one does not exist. These operations are
+particularly useful in situations where retries or duplicate operations could occur and
+you do not want to handle the errors that could result manually or you do not want to cause
+unnecessary writes and compaction work as a result of using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;UPSERT&lt;/code&gt; operation.
+The Java client can check if the cluster it is communicating with supports these operations
+by calling the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;supportsIgnoreOperations()&lt;/code&gt; method on the KuduClient.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Spark 3 compatible JARs compiled for Scala 2.12 are now published for the Kudu Spark integration.
+See &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-3202&quot;&gt;KUDU-3202&lt;/a&gt; for more details.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Every Kudu cluster now has an automatically generated cluster Id that can be used to uniquely
+identify a cluster. The cluster Id is shown in the masters web-UI, the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu master list&lt;/code&gt; tool,
+and in master server logs.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Downloading the WAL data and data blocks when copying tablets to another tablet server is now
+parallelized, resulting in much faster tablet copy operations. These operations occur when
+recovering from a down tablet server or when running the cluster rebalancer.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;The HMS integration now supports multiple Kudu clusters associated with a single HMS
+including Kudu clusters that do not have HMS synchronization enabled. This is possible,
+because the Kudu master will now leverage the cluster Id to ignore notifications from
+tables in a different cluster. Additionally, the HMS plugin will check if the Kudu cluster
+associated with a table has HMS synchronization enabled.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;DeltaMemStores will now be flushed as long as any DMS in a tablet is older than the point
+defined by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--flush_threshold_secs&lt;/code&gt;, rather than flushing once every &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--flush_threshold_secs&lt;/code&gt;
+period. This can reduce memory pressure under update- or delete-heavy workloads, and lower tablet
+server restart times following such workloads.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The above is just a list of the highlights, for a more complete list of new
+features, improvements and fixes please refer to the &lt;a href=&quot;/releases/1.14.0/docs/release_notes.html&quot;&gt;release
+notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.14.0, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.14.0&quot;&gt;1.14.0 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.14.0/docs/installation.html#build_from_source&quot;&gt;1.14.0 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.14.0&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, experimental Docker images are published to
+&lt;a href=&quot;https://hub.docker.com/r/apache/kudu&quot;&gt;Docker Hub&lt;/a&gt;, including for AArch64-based
+architectures (ARM).&lt;/p&gt;</content><author><name>Grant Henke</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.14.0! The new release adds several new features and improvements, including the following:</summary></entry><entry><title type="html">Optimized joins &amp;amp; filtering with Bloom filter predicate in Kudu</title><link href="http://localhost:4000/2021/01/15/bloom-filter-predicate.html" rel="alternate" type="text/html" title="Optimized joins &amp;amp; filtering with Bloom filter predicate in Kudu" /><published>2021-01-15T00:00:00+00:00</published><updated>2021-01-15T00:00:00+00:00</updated><id>http://localhost:4000/2021/01/15/bloom-filter-predicate</id><content type="html" xml:base="http://localhost:4000/2021/01/15/bloom-filter-predicate.html">&lt;p&gt;Note: This is a cross-post from the Cloudera Engineering Blog
+&lt;a href=&quot;https://blog.cloudera.com/optimized-joins-filtering-with-bloom-filter-predicate-in-kudu/&quot;&gt;Optimized joins &amp;amp; filtering with Bloom filter predicate in Kudu&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Cloudera’s CDP Runtime version 7.1.5 maps to Apache Kudu 1.13 and upcoming Apache Impala 4.0&lt;/p&gt;
+
+&lt;h2 id=&quot;introduction&quot;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;In database systems one of the most effective ways to improve performance is to avoid doing
+unnecessary work, such as network transfers and reading data from disk. One of the ways Apache
+Kudu achieves this is by supporting column predicates with scanners. Pushing down column predicate
+filters to Kudu allows for optimized execution by skipping reading column values for filtered out
+rows and reducing network IO between a client, like the distributed query engine Apache Impala, and
+Kudu. See the documentation on
+&lt;a href=&quot;https://docs.cloudera.com/runtime/latest/impala-reference/topics/impala-runtime-filtering.html&quot;&gt;runtime filtering in Impala&lt;/a&gt;
+for details.&lt;/p&gt;
+
+&lt;p&gt;CDP Runtime 7.1.5 and CDP Public Cloud added support for Bloom filter column predicate pushdown in
+Kudu and the associated integration in Impala.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;bloom-filter&quot;&gt;Bloom filter&lt;/h2&gt;
+&lt;p&gt;A Bloom filter is a space-efficient probabilistic data structure used to test set membership with a
+possibility of false positive matches. In database systems these are used to determine whether a
+set of data can be ignored when only a subset of the records are required. See the
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Bloom_filter&quot;&gt;wikipedia page&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;The implementation used in Kudu is a space, hash, and cache efficient block-based Bloom filter from
+&lt;a href=&quot;https://www.cs.amherst.edu/~ccmcgeoch/cs34/papers/cacheefficientbloomfilters-jea.pdf&quot;&gt;“Cache-, Hash- and Space-Efficient Bloom Filters”&lt;/a&gt;
+by Putze et al. This Bloom filter was taken from the implementation in Impala and further enhanced.
+The block based Bloom filter is designed to fit in CPU cache, and it allows SIMD operations using
+AVX2, when available, for efficient lookup and insertion.&lt;/p&gt;
+
+&lt;p&gt;Consider the case of a broadcast hash join between a small table and a big table where predicate
+push down is not available. This typically involves following steps:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Read the entire small table and construct a hash table from it.&lt;/li&gt;
+  &lt;li&gt;Broadcast the generated hash table to all worker nodes.&lt;/li&gt;
+  &lt;li&gt;On the worker nodes start fetching and iterating on slices of the big table,  check whether the
+key in the big table exists in the hash table, and only return the matched rows.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Step 3 is the heaviest since it involves reading the entire big table, and could involve heavy
+network IO if the worker and the nodes hosting the big table are not on the same server.&lt;/p&gt;
+
+&lt;p&gt;Before 7.1.5, Impala supported pushing down only the Minimum/Maximum (MIN_MAX) runtime filter to
+Kudu which filters out values not within the specified bounds. In addition to the MIN_MAX runtime
+filter, Impala in CDP 7.1.5+ now supports pushing down a runtime Bloom filter to Kudu. With the
+newly introduced Bloom filter predicate support in Kudu, Impala can use this feature to perform
+drastically more efficient joins for data stored in Kudu.
+Performance
+As in the scenario described above, we ran a Impala query which joins a big table stored on Kudu
+and a small table stored as Parquet on HDFS. The small table was created using Parquet on HDFS to
+isolate the new feature, but could also be stored in Kudu just the same. We ran the queries first
+using only the MIN_MAX filter and then using both the MIN_MAX and BLOOM filter
+(ALL runtime filters). For comparison, we created the same big table in Parquet on HDFS. Using
+Parquet on HDFS is a great baseline for comparison because Impala already supports both MIN_MAX and
+BLOOM filters for Parquet on HDFS.&lt;/p&gt;
+
+&lt;h2 id=&quot;setup&quot;&gt;Setup&lt;/h2&gt;
+&lt;p&gt;The following test was performed on a 6 node cluster with CDP Runtime 7.1.5.&lt;/p&gt;
+
+&lt;p&gt;Hardware Configuration:
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dell PowerEdge R430, 20c/40t Xeon e5-2630 v4 @ 2.2Ghz, 128GB RAM, 4-2TB HDDs with 1 for WAL and 3
+for data directories.&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;schema&quot;&gt;Schema:&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Big table consists of 260 million rows with randomly generated data hash partitioned by primary
+key across 20 partitions on Kudu. The Kudu table was explicitly rebalanced to ensure a balanced
+layout after the load.&lt;/li&gt;
+  &lt;li&gt;Small table consists of 2000 rows of top 1000 and bottom 1000 keys from the big table stored as
+Parquet on HDFS. This prevents the MIN_MAX filters from doing any filtering on the big table as
+all rows would fall under the range bounds of the MIN_MAX filters.&lt;/li&gt;
+  &lt;li&gt;COMPUTE STATS were run on all tables to help gather information about the table metadata and help
+Impala optimize the query plan.&lt;/li&gt;
+  &lt;li&gt;All queries were run 10 times and the mean query runtime is depicted below.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;join-queries&quot;&gt;Join Queries&lt;/h2&gt;
+&lt;p&gt;For join queries, we saw performance improvements of 3X to 5X in Kudu with Bloom filter predicate
+pushdown. We expect to see even better performance multiples with larger data sizes and more
+selective queries.&lt;/p&gt;
+
+&lt;p&gt;Compared to Parquet on HDFS, Kudu performance is now better by around 17-33%.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/bloom-filter-join-queries.png&quot; alt=&quot;png&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;update-query&quot;&gt;Update Query&lt;/h2&gt;
+&lt;p&gt;For an update query that basically upserts the entire small table into the existing big table, we
+saw 15X improvement. This is primarily due to the increased query performance when selecting the
+rows to update.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/bloom-filter-update-query.png&quot; alt=&quot;png&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;See references section below for details on the table schema, loading process, and queries that were
+run.&lt;/p&gt;
+
+&lt;h2 id=&quot;tpc-h&quot;&gt;TPC-H&lt;/h2&gt;
+&lt;p&gt;We also ran the TPC-H benchmark on a single node cluster with a scale factor of 30 and saw
+performance improvements in the range of 19% to 31% with different block cache capacity settings.&lt;/p&gt;
+
+&lt;p&gt;Kudu automatically disables Bloom filter predicates that are not effectively filtering data to avoid
+any performance penalties from the new feature. During development of the feature, query 9 in the
+TPCH benchmark (TPCH-Q9) exhibited regression of 50-96%. On further investigation, the time required
+to scan the rows from Kudu increased by up to 2X. When investigating this regression we found that
+the Bloom filter predicate that was pushed down was filtering out less than 10% of the rows, leading
+to increased CPU usage in Kudu which outweighed the benefit of the filter. To resolve the regression
+we added a heuristic in Kudu wherein if a Bloom filter predicate is not filtering out a sufficient
+percentage of rows then it’s disabled automatically for the remainder of the scan. This is safe
+because Bloom filters can return false positives and hence false matches returned to the client are
+expected to be filtered out using other deterministic filters.&lt;/p&gt;
+
+&lt;h2 id=&quot;feature-availability&quot;&gt;Feature Availability&lt;/h2&gt;
+&lt;p&gt;Users querying Kudu using Impala will have the feature enabled by default from CDP 7.1.5 onward
+and CDP Public Cloud. We highly recommend users upgrade to get this performance enhancement and many
+other performance enhancements in the release. For custom applications that use the Kudu client API
+directly, the Kudu C++ client also has the Bloom filter predicate available from CDP 7.1.5 onward.
+The Kudu Java client does not have the Bloom filter predicate available yet,
+&lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-3221&quot;&gt;KUDU-3221&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References:&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Performance testing related schema and queries:
+&lt;a href=&quot;https://gist.github.com/bbhavsar/006df9c40b4b0528e297fac29824ceb4&quot;&gt;https://gist.github.com/bbhavsar/006df9c40b4b0528e297fac29824ceb4&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Kudu C++ client documentation:
+&lt;a href=&quot;https://kudu.apache.org/cpp-client-api/classkudu_1_1client_1_1KuduTable.html#a356e8d0d10491d4d8540adefac86be94&quot;&gt;https://kudu.apache.org/cpp-client-api/classkudu_1_1client_1_1KuduTable.html#a356e8d0d10491d4d8540adefac86be94&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Example code to create and pass Bloom filter predicate:
+&lt;a href=&quot;https://github.com/apache/kudu/blob/master/src/kudu/client/predicate-test.cc#L1416&quot;&gt;https://github.com/apache/kudu/blob/master/src/kudu/client/predicate-test.cc#L1416&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Block based Bloom filter:
+&lt;a href=&quot;https://github.com/apache/kudu/blob/master/src/kudu/util/block_bloom_filter.h#L51&quot;&gt;https://github.com/apache/kudu/blob/master/src/kudu/util/block_bloom_filter.h#L51&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;acknowledgement&quot;&gt;Acknowledgement&lt;/h2&gt;
+&lt;p&gt;This feature was implemented jointly by Bankim Bhavsar and Wenzhe Zhou with guidance and feedback
+from Tim Armstrong, Adar Dembo, Thomas Tauber-Marshall, Andrew Wong, and Grant Henke. We are also
+grateful for our customers especially Mauricio Aristizabal from Impact for providing us valuable
+feedback and benchmarks.&lt;/p&gt;</content><author><name>Bankim Bhavsar</name></author><summary type="html">Note: This is a cross-post from the Cloudera Engineering Blog Optimized joins &amp;amp; filtering with Bloom filter predicate in Kudu Cloudera’s CDP Runtime version 7.1.5 maps to Apache Kudu 1.13 and upcoming Apache Impala 4.0 Introduction In database systems one of the most effective ways to improve performance is to avoid doing unnecessary work, such as network transfers and reading data from disk. One of the ways Apache Kudu achieves this is by supporting column predicates with scanners. Pushing down column predicate filters to Kudu allows for optimized execution by skipping reading column values for filtered out rows and reducing network IO between a client, like the distributed query engine Apache Impala, and Kudu. See the documentation on runtime filtering in Impala for details. CDP Runtime 7.1.5 and CDP Public Cloud added support for Bloom filter column predicate pushdown in Kudu and the associated integration in Impala.</summary></entry><entry><title type="html">Apache Kudu 1.13.0 released</title><link href="http://localhost:4000/2020/09/21/apache-kudu-1-13-0-release.html" rel="alternate" type="text/html" title="Apache Kudu 1.13.0 released" /><published>2020-09-21T00:00:00+00:00</published><updated>2020-09-21T00:00:00+00:00</updated><id>http://localhost:4000/2020/09/21/apache-kudu-1-13-0-release</id><content type="html" xml:base="http://localhost:4000/2020/09/21/apache-kudu-1-13-0-release.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.13.0!&lt;/p&gt;
+
+&lt;p&gt;The new release adds several new features and improvements, including the
+following:&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Added table ownership support. All newly created tables are automatically
+owned by the user creating them. It is also possible to change the owner by
+altering the table. You can also assign privileges to table owners via Apache
+Ranger.&lt;/li&gt;
+  &lt;li&gt;An experimental feature is added to Kudu that allows it to automatically
+rebalance tablet replicas among tablet servers. The background task can be
+enabled by setting the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--auto_rebalancing_enabled&lt;/code&gt; flag on the Kudu masters.
+Before starting auto-rebalancing on an existing cluster, the CLI rebalancer
+tool should be run first.&lt;/li&gt;
+  &lt;li&gt;Bloom filter column predicate pushdown has been added to allow optimized
+execution of filters which match on a set of column values with a
+false-positive rate. Support for Impala queries utilizing Bloom filter
+predicate is available yielding performance improvements of 19% to 30% in TPC-H
+benchmarks and around 41% improvement for distributed joins across large
+tables. Support for Spark is not yet available.&lt;/li&gt;
+  &lt;li&gt;ARM-based architectures are now supported.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The above is just a list of the highlights, for a more complete list of new
+features, improvements and fixes please refer to the &lt;a href=&quot;/releases/1.13.0/docs/release_notes.html&quot;&gt;release
+notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.13.0, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.13.0&quot;&gt;1.13.0 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.13.0/docs/installation.html#build_from_source&quot;&gt;1.13.0 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.13.0&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, experimental Docker images are published to
+&lt;a href=&quot;https://hub.docker.com/r/apache/kudu&quot;&gt;Docker Hub&lt;/a&gt;, including for AArch64-based
+architectures (ARM).&lt;/p&gt;</content><author><name>Attila Bukor</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.13.0! The new release adds several new features and improvements, including the following:</summary></entry><entry><title type="html">Fine-Grained Authorization with Apache Kudu and Apache Ranger</title><link href="http://localhost:4000/2020/08/11/fine-grained-authz-ranger.html" rel="alternate" type="text/html" title="Fine-Grained Authorization with Apache Kudu and Apache Ranger" /><published>2020-08-11T00:00:00+00:00</published><updated>2020-08-11T00:00:00+00:00</updated><id>http://localhost:4000/2020/08/11/fine-grained-authz-ranger</id><content type="html" xml:base="http://localhost:4000/2020/08/11/fine-grained-authz-ranger.html">&lt;p&gt;When Apache Kudu was first released in September 2016, it didn’t support any
+kind of authorization. Anyone who could access the cluster could do anything
+they wanted. To remedy this, coarse-grained authorization was added along with
+authentication in Kudu 1.3.0. This meant allowing only certain users to access
+Kudu, but those who were allowed access could still do whatever they wanted. The
+only way to achieve finer-grained access control was to limit access to Apache
+Impala where access control &lt;a href=&quot;/2019/04/22/fine-grained-authorization-with-apache-kudu-and-impala.html&quot;&gt;could be enforced&lt;/a&gt; by
+fine-grained policies in Apache Sentry. This method limited how Kudu could be
+accessed, so we saw a need to implement fine-grained access control in a way
+that wouldn’t limit access to Impala only.&lt;/p&gt;
+
+&lt;p&gt;Kudu 1.10.0 integrated with Apache Sentry to enable finer-grained authorization
+policies. This integration was rather short-lived as it was deprecated in Kudu
+1.12.0 and will be completely removed in Kudu 1.13.0.&lt;/p&gt;
+
+&lt;p&gt;Most recently, since 1.12.0 Kudu supports fine-grained authorization by
+integrating with Apache Ranger 2.1 and later. In this post, we’ll cover how this
+works and how to set it up.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h2 id=&quot;how-it-works&quot;&gt;How it works&lt;/h2&gt;
+
+&lt;p&gt;Ranger supports a wide range of software across the Apache Hadoop ecosystem, but
+unlike Sentry, it doesn’t depend on any of them for fine-grained authorization,
+making it an ideal choice for Kudu.&lt;/p&gt;
+
+&lt;p&gt;Ranger consists of an Admin server that has a web UI and a REST API where admins
+can create policies. The policies are stored in a database (supported database
+systems are Microsoft SQL Server, MySQL, Oracle, PostgreSQL, and SQL Anywhere)
+and are periodically fetched and cached by the Ranger plugin that runs on the
+Kudu Masters. The Ranger plugin is responsible for authorizing the requests
+against the cached policies. At the time of writing this post, the Ranger plugin
+base is available only in Java, as most Hadoop ecosystem projects, including
+Ranger, are written in Java.&lt;/p&gt;
+
+&lt;p&gt;Unlike Sentry’s client which we reimplemented in C++, the Ranger plugin is a fat
+client that handles the evaluation of the policies (which are much richer and
+more complex than Sentry policies) locally, so we decided not to reimplement it
+in C++.&lt;/p&gt;
+
+&lt;p&gt;Each Kudu Master spawns a JVM child process that is effectively a wrapper around
+the Ranger plugin and communicates with it via named pipes.&lt;/p&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;p&gt;This post assumes the Admin Tool of a compatible Ranger version is
+&lt;a href=&quot;https://ranger.apache.org/quick_start_guide.html&quot;&gt;installed&lt;/a&gt; on a host that is
+reachable by both you and by all Kudu Master servers.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: At the time of writing this post, Ranger 2.0 is the most recent release
+which does NOT support Kudu yet. Ranger 2.1 will be the first version that
+supports Kudu. If you wish to use Kudu with Ranger before this is released, you
+either need to build Ranger from the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;master&lt;/code&gt; branch or use a distribution that
+has already backported the relevant bits
+(&lt;a href=&quot;https://issues.apache.org/jira/browse/RANGER-2684&quot;&gt;RANGER-2684&lt;/a&gt;:
+0b23df7801062cc7836f2e162e1775101898add4).&lt;/p&gt;
+
+&lt;p&gt;To enable Ranger integration in Kudu, Java 8 or later has to be available on the
+Master servers.&lt;/p&gt;
+
+&lt;p&gt;You can build the Ranger subprocess by navigating to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;java/&lt;/code&gt; inside the Kudu
+source directory, then running the below command:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./gradlew :kudu-subprocess:jar&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;This will build the subprocess JAR which you can find in the
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu-subprocess/build/libs&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;h2 id=&quot;setting-up-kudu-with-ranger&quot;&gt;Setting up Kudu with Ranger&lt;/h2&gt;
+
+&lt;p&gt;The first step is to add Kudu in Ranger Admin and set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tag.download.auth.users&lt;/code&gt;
+and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;policy.download.auth.users&lt;/code&gt; to the user or service principal name running
+the Kudu process (typically &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu&lt;/code&gt;). The former is for downloading tag-based
+policies which Kudu doesn’t currently support, so this is only for forward
+compatibility and can be safely omitted.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/blog-ranger/create-service.png&quot; alt=&quot;create-service&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, you’ll have to configure the Ranger plugin. As it’s written in Java and is
+part of the Hadoop ecosystem, it expects to find a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core-site.xml&lt;/code&gt; in its
+classpath that at a minimum configures the authentication types (simple or
+Kerberos) and the group mapping. If your Kudu is co-located with a Hadoop
+cluster, you can simply use your Hadoop’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core-site.xml&lt;/code&gt; and it should work.
+Otherwise, you can use the below sample &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core-site.xml&lt;/code&gt; assuming you have
+Kerberos enabled and shell-based groups mapping works for you:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;hadoop.security.authentication&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;kerberos&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;hadoop.security.group.mapping&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;org.apache.hadoop.security.ShellBasedUnixGroupsMapping&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In addition to the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;core-site.xml&lt;/code&gt; file, you’ll also need a
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger-kudu-security.xml&lt;/code&gt; in the same directory that looks like this:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;configuration&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;ranger.plugin.kudu.policy.cache.dir&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;/path/to/policy/cache/&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;ranger.plugin.kudu.service.name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;kudu&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;ranger.plugin.kudu.policy.rest.url&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;http://ranger-admin:6080&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;ranger.plugin.kudu.policy.source.impl&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;org.apache.ranger.admin.client.RangerAdminRESTClient&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;ranger.plugin.kudu.policy.pollIntervalMs&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;30000&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;property&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;name&amp;gt;&lt;/span&gt;ranger.plugin.kudu.access.cluster.name&lt;span class=&quot;nt&quot;&gt;&amp;lt;/name&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;value&amp;gt;&lt;/span&gt;Cluster 1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/value&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/property&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/configuration&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger.plugin.kudu.policy.cache.dir&lt;/code&gt; - A directory that is writable by the
+user running the Master process where the plugin will cache the policies it
+fetches from Ranger Admin.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger.plugin.kudu.service.name&lt;/code&gt; - This needs to be set to whatever the
+service name was set to on Ranger Admin.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger.plugin.kudu.policiy.rest.url&lt;/code&gt; - The URL of the Ranger Admin REST API.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger.plugin.kudu.policy.source.impl&lt;/code&gt; - This should always be
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;org.apache.ranger.admin.client.RangerAdminRESTClient&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger.plugin.kudu.policy.pollIntervalMs&lt;/code&gt; - This is the interval at which the
+plugin will fetch policies from the Ranger Admin.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ranger.plugin.kudu.access.cluster.name&lt;/code&gt; - The name of the cluster.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Note&lt;/em&gt;: This is a minimal config. For more options refer to the &lt;a href=&quot;https://cwiki.apache.org/confluence/display/RANGER/Index&quot;&gt;Ranger
+documentation&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Once these files are created, you need to point Kudu Masters to the directory
+containing them with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ranger_config_path&lt;/code&gt; flag. In addition,
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ranger_jar_path&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ranger_java_path&lt;/code&gt; should be configured. The Java path
+defaults to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$JAVA_HOME/bin/java&lt;/code&gt; if &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$JAVA_HOME&lt;/code&gt; is set and falls back to
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;java&lt;/code&gt; in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;$PATH&lt;/code&gt; if not. The JAR path defaults to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu-subprocess.jar&lt;/code&gt; in the
+directory containing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu-master&lt;/code&gt; binary.&lt;/p&gt;
+
+&lt;p&gt;As the last step, you need to set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-tserver_enforce_access_control&lt;/code&gt; to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;true&lt;/code&gt; on
+the Tablet Servers to make sure access control is respected across the cluster.&lt;/p&gt;
+
+&lt;h2 id=&quot;creating-policies&quot;&gt;Creating policies&lt;/h2&gt;
+
+&lt;p&gt;After setting up the integration it’s time to create some policies, as now only
+trusted users are allowed to perform any action, everyone else is locked out.&lt;/p&gt;
+
+&lt;p&gt;To create your first policy, log in to Ranger Admin, click on the Kudu service
+you created in the first step of setup, then on the “Add New Policy” button in
+the top right corner. You’ll need to name the policy and set the resource it
+will apply to. Kudu doesn’t support databases, but with Ranger integration
+enabled, it will treat the part of the table name before the first period as the
+database name, or default to “default” if the table name doesn’t contain a
+period (configurable with the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-ranger_default_database&lt;/code&gt; flag on the
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu-master&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;There is no implicit hierarchy in the resources, which means that granting
+privileges on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db=foo&lt;/code&gt; won’t imply privileges on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo.bar&lt;/code&gt;. To create a policy
+that applies to all tables and all columns in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;foo&lt;/code&gt; database you need to
+create a policy for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db=foo-&amp;gt;tbl=*-&amp;gt;col=*&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/blog-ranger/create-policy.png&quot; alt=&quot;create-policy&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;For a list of the required privileges to perform operations please refer to our
+&lt;a href=&quot;/docs/security.html#policy-for-kudu-masters&quot;&gt;documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;table-ownership&quot;&gt;Table ownership&lt;/h2&gt;
+
+&lt;p&gt;Kudu 1.13 will introduce table ownership, which enhances the authorization
+experience when Ranger integration is enabled. Tables are automatically owned by
+the users creating the table and it’s possible to change the owner as a part of
+an alter table operation.&lt;/p&gt;
+
+&lt;p&gt;Ranger supports granting privileges to the table owners via a special &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{OWNER}&lt;/code&gt;
+user. You can, for example, grant the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ALL&lt;/code&gt; privilege and delegate admin (this
+is required to change the owner of a table) to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;{OWNER}&lt;/code&gt; on
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db=*-&amp;gt;table=*-&amp;gt;column=*&lt;/code&gt;. This way your users will be able to perform any
+actions on the tables they created without having to explicitly assign
+privileges per table. They will, of course, need to be granted the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CREATE&lt;/code&gt;
+privilege on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db=*&lt;/code&gt; or on a specific database to actually be able to create
+their own tables.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/blog-ranger/allow-conditions.png&quot; alt=&quot;allow-conditions&quot; class=&quot;img-responsive&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this post we’ve covered how to set up and use the newest Kudu integration,
+Apache Ranger, and a sneak peek into the table ownership feature. Please try
+them out if you have a chance, and let us know what you think on our &lt;a href=&quot;mailto:user@kudu.apache.org&quot;&gt;mailing
+list&lt;/a&gt; or &lt;a href=&quot;https://getkudu.slack.com&quot;&gt;Slack&lt;/a&gt;. If you
+run into any issues, feel free to reach out to us on either platform, or open a
+&lt;a href=&quot;https://issues.apache.org/jira/projects/KUDU&quot;&gt;bug report&lt;/a&gt;.&lt;/p&gt;</content><author><name>Attila Bukor</name></author><summary type="html">When Apache Kudu was first released in September 2016, it didn’t support any kind of authorization. Anyone who could access the cluster could do anything they wanted. To remedy this, coarse-grained authorization was added along with authentication in Kudu 1.3.0. This meant allowing only certain users to access Kudu, but those who were allowed access could still do whatever they wanted. The only way to achieve finer-grained access control was to limit access to Apache Impala where access control could be enforced by fine-grained policies in Apache Sentry. This method limited how Kudu could be accessed, so we saw a need to implement fine-grained access control in a way that wouldn’t limit access to Impala only. Kudu 1.10.0 integrated with Apache Sentry to enable finer-grained authorization policies. This integration was rather short-lived as it was deprecated in Kudu 1.12.0 and will be completely removed in Kudu 1.13.0. Most recently, since 1.12.0 Kudu supports fine-grained authorization by integrating with Apache Ranger 2.1 and later. In this post, we’ll cover how this works and how to set it up.</summary></entry><entry><title type="html">Building Near Real-time Big Data Lake</title><link href="http://localhost:4000/2020/07/30/building-near-real-time-big-data-lake.html" rel="alternate" type="text/html" title="Building Near Real-time Big Data Lake" /><published>2020-07-30T00:00:00+00:00</published><updated>2020-07-30T00:00:00+00:00</updated><id>http://localhost:4000/2020/07/30/building-near-real-time-big-data-lake</id><content type="html" xml:base="http://localhost:4000/2020/07/30/building-near-real-time-big-data-lake.html">&lt;p&gt;Note: This is a cross-post from the Boris Tyukin’s personal blog &lt;a href=&quot;https://boristyukin.com/building-near-real-time-big-data-lake-part-2/&quot;&gt;Building Near Real-time Big Data Lake: Part 2&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the second part of the series. In &lt;a href=&quot;https://boristyukin.com/building-near-real-time-big-data-lake-part-i/&quot;&gt;Part 1&lt;/a&gt;
+I wrote about our use-case for the Data Lake architecture and shared our success story.&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;h2 id=&quot;requirements&quot;&gt;Requirements&lt;/h2&gt;
+&lt;p&gt;Before we embarked on our journey, we had identified high-level requirements and guiding principles.
+It is crucial to think it through to envision who and how will use your Data Lake. Identify your
+first three projects to keep them while you are building the Data Lake.&lt;/p&gt;
+
+&lt;p&gt;The best way is to start a few smaller proof-of-concept projects: play with various distributed
+engines and tools, run tons of benchmarks, and learn from others, who implemented a similar solution
+successfully. Do not forget to learn from others’ mistakes too.&lt;/p&gt;
+
+&lt;p&gt;We had settled on these 7 guiding principles before we started looking at technology and architecture:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Scale-out, not scale-up.&lt;/li&gt;
+  &lt;li&gt;Design for resiliency and availability.&lt;/li&gt;
+  &lt;li&gt;Support both real-time and batch ingestion into a Data Lake.&lt;/li&gt;
+  &lt;li&gt;Enable both ad-hoc exploratory analysis as well as interactive queries.&lt;/li&gt;
+  &lt;li&gt;Replicate in near real-time 300+ Cerner Millennium tables from 3 remote-hosted Cerner Oracle RAC
+instances with average latency less than 10 seconds (time between a change made in Cerner EHR system
+by clinicians and data ingested and ready for consumption in Data Lake).&lt;/li&gt;
+  &lt;li&gt;Have robust logging and monitoring processes to ensure reliability of the pipeline and to simplify
+troubleshooting.&lt;/li&gt;
+  &lt;li&gt;Reduce manual work greatly and ease the ongoing support.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;We decided to embrace the benefits and scalability of Big Data technology. In fact, it was a pretty
+easy sell as our leadership was tired of constantly buying expensive software and hardware from
+big-name vendors and not being able to scale-out to support an avalanche of new projects and requests.&lt;/p&gt;
+
+&lt;p&gt;We started looking at Change Data Capture (CDC) products to mine and ship database logs from Oracle.&lt;/p&gt;
+
+&lt;p&gt;We knew we had to implement a metadata- or code-as-configuration driven solution to manage hundreds
+of tables, without expanding our team.&lt;/p&gt;
+
+&lt;p&gt;We needed a flexible orchestration and scheduling tool, designed with real-time workloads in mind.&lt;/p&gt;
+
+&lt;p&gt;Finally, we engaged our and Cerner’s leadership early, as it would take time to hash out all the
+details, and to make their DBAs confident that we were not going to break their production systems
+by streaming 1000s of messages every second 24x7. In fact, one of the goals was to relieve production
+systems from analytical workloads.&lt;/p&gt;
+&lt;h2 id=&quot;platform-selection&quot;&gt;Platform selection&lt;/h2&gt;
+&lt;p&gt;First off, we had to decide on the actual platform. After spending 3 months researching, 4 options
+emerged, given the realities of our organization:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;On-premises virtualized cluster, using preferred vendors, recommended by our infrastructure team.&lt;/li&gt;
+  &lt;li&gt;On-premises Big Data appliance (bundled hardware and software, optimized for Big Data workloads).&lt;/li&gt;
+  &lt;li&gt;Big Data cluster in cloud, managed by ourselves (IaaS model, which just means renting a bunch of
+VMs and running Cloudera or Hortonworks Big Data distribution).&lt;/li&gt;
+  &lt;li&gt;A fully managed cloud data platform and native cloud data warehouse (Snowflake, Google BigQuery,
+Amazon Redshift, and etc.)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Each option had a long list of pros and cons, but ultimately we went with option 2. The price was
+really attractive, it was a capital expense (our finance people rightfully hate subscriptions), the
+best performance, security, and control.&lt;/p&gt;
+
+&lt;p&gt;It was in 2017 when we made a decision. While we could not provision cluster resources and add nodes
+with a click of button and we learned that software and hardware upgrades were a real chore, it was 
+still very much worth that as we’ve saved a 7 number figure for the organization to get the
+performance we needed.&lt;/p&gt;
+
+&lt;p&gt;Owning hardware also made a lot of sense for us as we could not forecast our needs far enough in the
+future and we could get a really powerful 6 node cluster for a fraction the cost that we would end
+up paying in subscription fees in the next 12 months. Of course, it did help that we already had a
+state-of-the-art data center and people managing it.&lt;/p&gt;
+
+&lt;p&gt;Fully-managed or serverless architecture was not really an option back then, but if you asked me
+today, this would be the first thing I would look at if I had to build a data lake today
+(definitely check AWS Lake Formation, AWS Athena, Amazon Redshift, Azure Synapse, Snowflake and
+Google BigQuery).&lt;/p&gt;
+
+&lt;p&gt;Your organization, goals, projects and situation could be very different and you should definitely
+evaluate cloud solutions, especially in 2020 when prices are decreasing, cloud providers are
+extremely competitive and there are new attractive pricing options with 3 year commitment. Make sure
+you understand the cost and billing model. Or, hire a company (there are plenty now), that will
+explain your cloud bills before you get a horrifying check.&lt;/p&gt;
+
+&lt;p&gt;Some of the things to consider:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Existing data center infrastructure and access to people, supporting it.&lt;/li&gt;
+  &lt;li&gt;Integration with current tools (BI, ETL, Advanced Analytics etc.) Do they stay on-premises or can
+be moved into cloud to avoid networking lags or charges for data egress?&lt;/li&gt;
+  &lt;li&gt;Total ownership cost and cost to performance ratio.&lt;/li&gt;
+  &lt;li&gt;Do you really need elasticity? This is the first thing that cloud advocates are preaching but
+think if and how this applies to you.&lt;/li&gt;
+  &lt;li&gt;Is time-to-market so crucial for you, or you can wait a few months to build Big Data
+infrastructure on-premises to save some money and get much better performance and control of
+physical hardware?&lt;/li&gt;
+  &lt;li&gt;Are you okay with locking yourself in to vendor’s solution XYZ? This is an especially crucial
+question if you are selecting a fully managed platform.&lt;/li&gt;
+  &lt;li&gt;Can you easily change your cloud provider? Or can you even afford to put all your trust and faith
+in a single cloud provider?&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Do your homework, spend a lot of time reading and talking to other people (engineers and architects,
+not sales reps), and make sure you understand what you are signing up for.&lt;/p&gt;
+
+&lt;p&gt;And remember, there is no magic! You still need to architect, design, build, support, test, and make
+good choices and use common sense. No matter what your favorite vendor tells you. You might save
+time by spinning up a cluster in minutes, but you still need people to manage all that. You still
+need great architects and engineers to realize benefits from all that hot new tech.&lt;/p&gt;
+
+&lt;h2 id=&quot;building-blocks&quot;&gt;Building blocks&lt;/h2&gt;
+
+&lt;p&gt;Once we agreed on the platform of our choice, powered by Cloudera Enterprise Data Hub, we started
+prototyping and benchmarking various engines and tools that came with it. We looked at other
+open-source projects, as nothing really prevents you from installing and using any open-source
+product you desire and trust. One of these products for us was Apache NiFi, which proved to be a
+tremendous value.&lt;/p&gt;
+
+&lt;p&gt;After a lot of trials and errors, we decided on this architecture:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://boristyukin.com/content/images/pipelinearchitecture.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;One of the toughest challenges we faced right away was the fact that most of the Big Data data
+engines were not designed to support mutable data but rather immutable append-only data. All the
+workarounds we had tried did not work for us and no matter what we did with partitioning strategy,
+we just needed a simple ability to update and delete data, not only insert. Anyone who worked with
+RDBMS or legacy columnar databases takes this capability for granted, but surprisingly it is a very
+difficult task in Big Data world.&lt;/p&gt;
+
+&lt;p&gt;We considered Apache HBase, but the performance of analytics-style ETL and interactive queries was
+really bad. We were blown away by Apache Impala’s performance on HDFS as no matter what we threw at
+Impala, it was hundreds of times faster…but we could not update data in place.&lt;/p&gt;
+
+&lt;p&gt;At about the same time, Cloudera released and open-sourced Apache Kudu project that became part of
+its official distribution. We got very excited about it (refer to our benchmarks &lt;a href=&quot;http://boristyukin.com/benchmarking-apache-kudu-vs-apache-impala/&quot;&gt;here&lt;/a&gt;), and decided
+to proceed with Kudu as a storage engine, while using Apache Impala as SQL query engine. One of the
+ambitious goals of Apache Kudu is to cut the need for the infamous &lt;a href=&quot;https://en.wikipedia.org/wiki/Lambda_architecture&quot;&gt;Lambda architecture&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After talking to 7 vendors and playing with our top picks, we selected a Change Data Capture product
+(Oracle GoldenGate for Big Data edition). It deserves a separate post but let’s just say it was the
+only product out of 7, that was able to handle complexities of the source Oracle RAC systems and
+offer great performance without the need to install any agents or software on the actual production
+database. Other solutions had a very long list of limitations for Oracle systems, make sure to read
+and understand these limitations.&lt;/p&gt;
+
+&lt;p&gt;Our homegrown tool &lt;a href=&quot;http://boristyukin.com/how-to-ingest-a-large-number-of-tables-into-a-big-data-lake-or-why-i-built-metazoo/&quot;&gt;MetaZoo&lt;/a&gt;
+has been instrumental to bring order and peace, and that’s why it earned
+its own blog post!&lt;/p&gt;
+
+&lt;h2 id=&quot;how-it-works&quot;&gt;How it works&lt;/h2&gt;
+&lt;p&gt;Initial ingest is pretty typical - we use Sqoop to extract data from Cerner Oracle databases, and
+NiFi helps orchestrate initial load for hundreds of tables. Actually, this NiFi flow below can
+handle initial ingest of hundreds of tables!&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://boristyukin.com/content/images/nifi_initial.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Our secret sauce though is &lt;a href=&quot;http://boristyukin.com/how-to-ingest-a-large-number-of-tables-into-a-big-data-lake-or-why-i-built-metazoo/&quot;&gt;MetaZoo&lt;/a&gt;.
+MetaZoo generates optimal parameters for Sqoop (such as a number of mappers, split-by column, and so
+forth), generates DDLs for staging and final tables, and SQL commands to transform data before they
+land in the Data Lake. MetaZoo also provides control tables to record status of every table.&lt;/p&gt;
+
+&lt;p&gt;The throughput of Sqoop is nothing but amazing. Gone are the days when we had to ask Cerner to dump
+tables on a hard-drive and ship it by snail mail (do not ask how much it cost us!). And we like how
+YARN queues help to limit the load on production databases.&lt;/p&gt;
+
+&lt;p&gt;To give you one example, a few years ago it took us 4 weeks to reload &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;clinical_event&lt;/code&gt; table from
+Cerner using Informatica into our local Oracle database. With Sqoop and Big Data, it was done in 11
+hours!&lt;/p&gt;
+
+&lt;p&gt;This is what happens during the initial ingest.&lt;/p&gt;
+
+&lt;p&gt;First, MetaZoo gathers relevant metadata from source system about tables to ingest, and based on
+that metadata will generate DDL scripts, SQL commands snippets, Sqoop parameters, and more. It will
+initialize tables in MetaZoo control tables as well.&lt;/p&gt;
+
+&lt;p&gt;Then NiFi picks a list of tables to ingest from MetaZoo control tables and run the following steps
+to:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Execute and wait for Sqoop to finish.&lt;/li&gt;
+  &lt;li&gt;Apply some basic rules to map data types to the corresponding data types in the lake. We convert
+timestamps to a proper time zone as well. While you do not want to do any heavy processing or or any
+data modeling in Data Lake and keep data closer to raw format as much as you can, some light
+processing upfront goes a long way and make it easier for analysts and developers to use these
+tables later.&lt;/li&gt;
+  &lt;li&gt;Load processed data into final tables after some basic validation.&lt;/li&gt;
+  &lt;li&gt;Compute Impala statistics.&lt;/li&gt;
+  &lt;li&gt;Set initial ingest status to completed in MetaZoo control tables so it is ready for real-time
+streaming.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Before we kick off the initial ingest process, we start Oracle GoldenGate extracts and replicats
+(that’s the actual term) to begin capturing changes from a database and send them into Kafka. Every
+message, depending on database operation type and GoldenGate configuration, might have before/after
+table row values, operation type and database commit transaction time (it only extracts changes for
+committed transactions). Once the initial ingest is finished, and because GoldenGate continues
+sending changes since the moment we started, we can now start real-time ingest flow in NiFi.&lt;/p&gt;
+
+&lt;p&gt;A side benefit of decoupling GoldenGate from Kafka and NiFi and Kudu is to make this process
+resilient to failures. This allows us as well to bring one of these systems down for maintenance
+without much impact.&lt;/p&gt;
+
+&lt;p&gt;Below is the NiFi flow than handles real-time streaming from Oracle/GoldenGate/Kafka and persists
+data into Kudu:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://boristyukin.com/content/images/nifi_rt.png&quot; width=&quot;100%&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;NiFi flow consumes Kafka messages, produced by GoldenGate. Every table from every domain has
+its own Kafka topic. Topics have only one partition to preserve the original order of messages.&lt;/li&gt;
+  &lt;li&gt;New messages are queued in NiFi, using a simple First-In-First-Out pattern and grouped by a
+table. It is important to ensure the order of messages but still process tables concurrently.&lt;/li&gt;
+  &lt;li&gt;Messages are transformed, using the same basic rules we apply during the initial ingest.&lt;/li&gt;
+  &lt;li&gt;Finally, messages are persisted into Kudu. Some of them represent INSERT type operation, which
+results in brand new rows added to Kudu tables. Other messages are UPDATE and DELETE operations.
+And we have to deal with an exotic PK_UPDATE operation, when a primary key was changed for some
+reason in the source system (e.g. PK=111 was renamed to 222). We had to write a custom Kudu client
+to handle all these cases using Java Kudu API that was fun to use. NiFi allowed us to write custom
+processors and integrate that custom Kudu code directly into our flow.&lt;/li&gt;
+  &lt;li&gt;Useful metrics are stored in a separate Kudu table. We collect number of messages processed,
+operation type (insert, update, delete or primary key update), latency, important timestamps.
+Using this data, we can optimize and tweak the performance of the pipeline, and to monitor it by
+visualizing data on a dashboard.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;The entire flow handles 900+ tables today (as we capture 300 tables from 3 Cerner domains).&lt;/p&gt;
+
+&lt;p&gt;We process ~2,000 messages per second or 125MM messages per day. GoldenGate accumulates 150Gb worth
+of database changes per day. In Kudu, we store over 120B rows of data.&lt;/p&gt;
+
+&lt;p&gt;Our average latency is 6 seconds and the pipeline is running 24x7.&lt;/p&gt;
+
+&lt;h2 id=&quot;user-experience&quot;&gt;User experience&lt;/h2&gt;
+&lt;p&gt;I am biased, but I think this is a game-changer for analysts, BI developers, or any data people.
+What they get is an ability to access near real-time production data, with all the benefits and
+scalability of Big Data technology.&lt;/p&gt;
+
+&lt;p&gt;Here, I run a query in Impala to count patients, admitted to our hospitals within the last 7 days,
+who are still in the hospitals (not discharged yet):&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://boristyukin.com/content/images/query1.png&quot; alt=&quot;query 1&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then 5 seconds later I run the same query again to see numbers changed - more patients got admitted
+and discharged:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://boristyukin.com/content/images/query2.png&quot; alt=&quot;query 2&quot; /&gt;]&lt;/p&gt;
+
+&lt;p&gt;This query below counts certain clinical events in the 20B row Kudu table (which is updated in near
+real-time). While it takes 28 seconds to finish, this query would never even finish I ran it against
+our Oracle database. It found 13.7B events:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://boristyukin.com/content/images/query3.png&quot; alt=&quot;query 3&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;credits&quot;&gt;Credits&lt;/h2&gt;
+&lt;p&gt;Apache Impala, Apache Kudu and Apache NiFi were the pillars of our real-time pipeline. Back in 2017,
+Impala was already a rock solid battle-tested project, while NiFi and Kudu were relatively new. We
+did have some reservations about using them and were concerned about support if/when we needed it
+(and we did need it a few times).&lt;/p&gt;
+
+&lt;p&gt;We were amazed by all the help, dedication, knowledge sharing, friendliness, and openness of Impala,
+NiFi and Kudu developers. Huge thank you to all of you who helped us alone the way. You guys are
+amazing and you are building fantastic products!&lt;/p&gt;
+
+&lt;p&gt;To be continued…&lt;/p&gt;</content><author><name>Boris Tyukin</name></author><summary type="html">Note: This is a cross-post from the Boris Tyukin’s personal blog Building Near Real-time Big Data Lake: Part 2 This is the second part of the series. In Part 1 I wrote about our use-case for the Data Lake architecture and shared our success story.</summary></entry><entry><title type="html">Apache Kudu 1.12.0 released</title><link href="http://localhost:4000/2020/05/18/apache-kudu-1-12-0-release.html" rel="alternate" type="text/html" title="Apache Kudu 1.12.0 released" /><published>2020-05-18T00:00:00+00:00</published><updated>2020-05-18T00:00:00+00:00</updated><id>http://localhost:4000/2020/05/18/apache-kudu-1-12-0-release</id><content type="html" xml:base="http://localhost:4000/2020/05/18/apache-kudu-1-12-0-release.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.12.0!&lt;/p&gt;
+
+&lt;p&gt;The new release adds several new features and improvements, including the
+following:&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Kudu now supports native fine-grained authorization via integration with
+Apache Ranger. Kudu may now enforce access control policies defined for
+Kudu tables and columns stored in Ranger. See the
+&lt;a href=&quot;/releases/1.12.0/docs/security.html#fine_grained_authz&quot;&gt;authorization documentation&lt;/a&gt;
+for more details.&lt;/li&gt;
+  &lt;li&gt;Kudu’s web UI now supports proxying via Apache Knox. Kudu may be deployed
+in a firewalled state behind a Knox Gateway which will forward HTTP requests
+and responses between clients and the Kudu web UI.&lt;/li&gt;
+  &lt;li&gt;Kudu’s web UI now supports HTTP keep-alive. Operations that access multiple
+URLs will now reuse a single HTTP connection, improving their performance.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu tserver quiesce&lt;/code&gt; tool is added to quiesce tablet servers. While a
+tablet server is quiescing, it will stop hosting tablet leaders and stop
+serving new scan requests. This can be used to orchestrate a rolling restart
+without stopping on-going Kudu workloads.&lt;/li&gt;
+  &lt;li&gt;Introduced &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;auto&lt;/code&gt; time source for HybridClock timestamps. With
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--time_source=auto&lt;/code&gt; in AWS and GCE cloud environments, Kudu masters and
+tablet servers use the built-in NTP client synchronized with dedicated NTP
+servers available via host-only networks. With &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--time_source=auto&lt;/code&gt; in
+environments other than AWS/GCE, Kudu masters and tablet servers rely on
+their local machine’s clock synchronized by NTP. The default setting for
+the HybridClock time source (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--time_source=system&lt;/code&gt;) is backward-compatible,
+requiring the local machine’s clock to be synchronized by the kernel’s NTP
+discipline.&lt;/li&gt;
+  &lt;li&gt;The &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;kudu cluster rebalance&lt;/code&gt; tool now supports moving replicas away from
+specific tablet servers by supplying the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignored_tservers&lt;/code&gt; and
+&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--move_replicas_from_ignored_tservers&lt;/code&gt; arguments (see
+&lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2914&quot;&gt;KUDU-2914&lt;/a&gt; for more
+details).&lt;/li&gt;
+  &lt;li&gt;Write Ahead Log file segments and index chunks are now managed by Kudu’s file
+cache. With that, all long-lived file descriptors used by Kudu are managed by
+the file cache, and there’s no longer a need for capacity planning of file
+descriptor usage.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The above is just a list of the highlights, for a more complete list of new
+features, improvements and fixes please refer to the &lt;a href=&quot;/releases/1.12.0/docs/release_notes.html&quot;&gt;release
+notes&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.12.0, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.12.0&quot;&gt;1.12.0 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.12.0/docs/installation.html#build_from_source&quot;&gt;1.12.0 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.12.0&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally, experimental Docker images are published to
+&lt;a href=&quot;https://hub.docker.com/r/apache/kudu&quot;&gt;Docker Hub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Hao Hao</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.12.0! The new release adds several new features and improvements, including the following:</summary></entry><entry><title type="html">Apache Kudu 1.10.1 released</title><link href="http://localhost:4000/2019/11/20/apache-kudu-1-10-1-release.html" rel="alternate" type="text/html" title="Apache Kudu 1.10.1 released" /><published>2019-11-20T00:00:00+00:00</published><updated>2019-11-20T00:00:00+00:00</updated><id>http://localhost:4000/2019/11/20/apache-kudu-1-10-1-release</id><content type="html" xml:base="http://localhost:4000/2019/11/20/apache-kudu-1-10-1-release.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.10.1!&lt;/p&gt;
+
+&lt;p&gt;Apache Kudu 1.10.1 is a bug fix release which fixes critical issues discovered
+in Apache Kudu 1.10.0. In particular, this fixes a licensing issue with
+distributing libnuma library with the kudu-binary JAR artifact. Users of
+Kudu 1.10.0 are encouraged to upgrade to 1.10.1 as soon as possible. See the
+&lt;a href=&quot;/releases/1.10.1/docs/release_notes.html&quot;&gt;release notes&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.10.1, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.10.1&quot;&gt;1.10.1 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.10.1/docs/installation.html#build_from_source&quot;&gt;1.10.1 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.10.1&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;</content><author><name>Alexey Serbin</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.10.1! Apache Kudu 1.10.1 is a bug fix release which fixes critical issues discovered in Apache Kudu 1.10.0. In particular, this fixes a licensing issue with distributing libnuma library with the kudu-binary JAR artifact. Users of Kudu 1.10.0 are encouraged to upgrade to 1.10.1 as soon as possible. See the release notes for details.</summary></entry><entry><title type="html">Apache Kudu 1.11.1 released</title><link href="http://localhost:4000/2019/11/20/apache-kudu-1-11-1-release.html" rel="alternate" type="text/html" title="Apache Kudu 1.11.1 released" /><published>2019-11-20T00:00:00+00:00</published><updated>2019-11-20T00:00:00+00:00</updated><id>http://localhost:4000/2019/11/20/apache-kudu-1-11-1-release</id><content type="html" xml:base="http://localhost:4000/2019/11/20/apache-kudu-1-11-1-release.html">&lt;p&gt;The Apache Kudu team is happy to announce the release of Kudu 1.11.1!&lt;/p&gt;
+
+&lt;p&gt;This release contains a fix which addresses a critical issue discovered in
+1.10.0 and 1.11.0 and adds several new features and improvements since 1.10.0.&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;Apache Kudu 1.11.1 is a bug fix release which fixes critical issues discovered
+in Apache Kudu 1.11.0. In particular, this release fixes a licensing issue with
+distributing libnuma library with the kudu-binary JAR artifact. Users of
+Kudu 1.11.0 are encouraged to upgrade to 1.11.1 as soon as possible.&lt;/p&gt;
+
+&lt;p&gt;Apache Kudu 1.11.1 adds several new features and improvements since
+Apache Kudu 1.10.0, including the following:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Kudu now supports putting tablet servers into maintenance mode: while in this
+mode, the tablet server’s replicas will not be re-replicated if the server
+fails. Administrative CLI are added to orchestrate tablet server maintenance
+(see &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2069&quot;&gt;KUDU-2069&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Kudu now has a built-in NTP client which maintains the internal wallclock
+time used for generation of HybridTime timestamps. When enabled, system clock
+synchronization for nodes running Kudu is no longer necessary,
+(see &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2935&quot;&gt;KUDU-2935&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;Aggregated table statistics are now available to Kudu clients. This allows
+for various query optimizations. For example, Spark now uses it to perform
+join optimizations
+(see &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2797&quot;&gt;KUDU-2797&lt;/a&gt; and
+&lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2721&quot;&gt;KUDU-2721&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;The kudu CLI tool now supports creating and dropping range partitions
+for a table
+(see &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2881&quot;&gt;KUDU-2881&lt;/a&gt;).&lt;/li&gt;
+  &lt;li&gt;The kudu CLI tool now supports altering and dropping table columns.&lt;/li&gt;
+  &lt;li&gt;The kudu CLI tool now supports getting and setting extra configuration
+properties for a table
+(see &lt;a href=&quot;https://issues.apache.org/jira/browse/KUDU-2514&quot;&gt;KUDU-2514&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;See the &lt;a href=&quot;/releases/1.11.1/docs/release_notes.html&quot;&gt;release notes&lt;/a&gt; for details.&lt;/p&gt;
+
+&lt;p&gt;The Apache Kudu project only publishes source code releases. To build Kudu
+1.11.1, follow these steps:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download the Kudu &lt;a href=&quot;/releases/1.11.1&quot;&gt;1.11.1 source release&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Follow the instructions in the documentation to build Kudu &lt;a href=&quot;/releases/1.11.1/docs/installation.html#build_from_source&quot;&gt;1.11.1 from
+source&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;For your convenience, binary JAR files for the Kudu Java client library, Spark
+DataSource, Flume sink, and other Java integrations are published to the ASF
+Maven repository and are &lt;a href=&quot;https://search.maven.org/search?q=g:org.apache.kudu%20AND%20v:1.11.1&quot;&gt;now
+available&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Python client source is also available on
+&lt;a href=&quot;https://pypi.org/project/kudu-python/&quot;&gt;PyPI&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Additionally experimental Docker images are published to
+&lt;a href=&quot;https://hub.docker.com/r/apache/kudu&quot;&gt;Docker Hub&lt;/a&gt;.&lt;/p&gt;</content><author><name>Alexey Serbin</name></author><summary type="html">The Apache Kudu team is happy to announce the release of Kudu 1.11.1! This release contains a fix which addresses a critical issue discovered in 1.10.0 and 1.11.0 and adds several new features and improvements since 1.10.0.</summary></entry></feed>
